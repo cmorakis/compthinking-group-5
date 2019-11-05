@@ -1,1 +1,3 @@
 # compthinking-group-5
+
+Amber Cocchiola
