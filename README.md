@@ -2,3 +2,4 @@
 
 Amber Cocchiola
 Chris Morakis
+Lincoln Haltrich
