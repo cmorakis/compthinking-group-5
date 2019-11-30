@@ -25,7 +25,7 @@ import pandas
 def print_recipe(index):
     """print_recipe will print the full recipe from the dictionary of recipes to the screen. It accepts one integer argument. """
 #    lowidx = index
-    upidx = index
+    upidx = index+1
     #this loop finds where the recipe starts
 #    while lowidx >= 0:
 #        if pandas.isna(recipes['Title'][lowidx]):
@@ -74,63 +74,78 @@ def all_matches(ingredients):
 
 
 
-print(__doc__)  
-          
-print("Want to find recipes? Type 'y' for yes and 'n' for no.")
-decision = input()
- 
-  
+print(__doc__) 
+print(" ") 
+
+action = input("Would you like to find recipes based on ingredient or categories? Please type response as listed in the question.\n") 
+
+if action == 'categories':
+    import categories
+else:     
+    decision = input("Want to find recipes? Type 'y' for yes and 'n' for no.")
+
  #inputting ingredients to list
-ingredients = []
+    ingredients = []
  
-while decision == 'y':
-    print("\nWhat is in your cupboard? Enter one item at a time.")
-    item = input()
-    ingredients.append(item)
-    print("\nWant to add another? Type 'y' for yes. Hit any other key for no.")
-    decision = input()
+    while decision == 'y':
+        print("\nWhat is in your cupboard? Enter one item at a time.")
+        item = input()
+        ingredients.append(item)
+        print("\nWant to add another? Type 'y' for yes. Hit any other key for no.")
+        decision = input()
  
     
     
  #adding file of recipes
-file_name = 'recipes.csv'
+    file_name = 'recipes.csv'
 
-csv_recipes = pandas.read_csv(file_name)
-recipes = csv_recipes.to_dict()
+    csv_recipes = pandas.read_csv(file_name)
+    recipes = csv_recipes.to_dict()
 
 #print(csv_recipes)
 ###for testing if I imported the file correctly^^^
 
  
 #comparing ingredients to recipes
-rLength = len(recipes)
-iLength = len(ingredients)
-matches = []
-titleListnum = []
-titleListfinal = []
+    rLength = len(recipes)
+    iLength = len(ingredients)
+    matches = []
+    titleListnum = []
+    bestmatches = []
+    okaymatches = []
 
  
-for i in range(0, iLength): 
-    for category, data in recipes.items():
-        for key in data:
-            if data[key] == ingredients[i]:
-                matches.append(key)
+#searches data for every instance of the specified ingredient
+    for i in range(0, iLength): 
+        for category, data in recipes.items():
+            for key in data:
+                if data[key] == ingredients[i]:
+                    matches.append(key)
 
-for k in range(0, len(matches)):
-    titleListnum.append(find_recipetitle(matches[k]))
-    
-titleListnum.sort()
+#finds the index associated with the title of the recipe the ingredient is attached to
+    for k in range(0, len(matches)):
+        titleListnum.append(find_recipetitle(matches[k]))
 
-for p in range(0, len(titleListnum)-1):
-    if titleListnum[p] == titleListnum[p+1]:
-        titleListfinal.append(titleListnum[p])
+#Sort is necessary for the find matches to work   
+    titleListnum.sort()
+
+#this finds mathcing numbers in the list if title indexs
+    for p in range(0, len(titleListnum)-1):
+        if titleListnum[p] == titleListnum[p+1]:
+            bestmatches.append(titleListnum[p])
+        else:
+            okaymatches.append(titleListnum[p])
     
 #outputting matches
-print("\n", print_recipe.__doc__)
-for j in range(0, len(titleListfinal)):
-    print_recipe(titleListfinal[j])
+    print("\n", print_recipe.__doc__, "\n", find_recipetitle.__doc__, "\n")
+
+#displays only recipes that use btoh ingredients
+    print("\n\n\nBEST MATCHES:")
+    for j in range(0, len(bestmatches)):
+        print_recipe(bestmatches[j])
     
     
-#for q in range(0, len(matches)):
-    #print(find_recipetitle(matches[q]))
+    print("\n\n\nALL RECIPES CONTAINING:")
+    for j in range(0, len(okaymatches)):
+        print_recipe(okaymatches[j]) 
     
