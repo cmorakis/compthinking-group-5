@@ -3,3 +3,5 @@
 Amber Cocchiola
 Chris Morakis
 Lincoln Haltrich
+Sarah Jones
+Alissha Wilson
