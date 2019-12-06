@@ -14,6 +14,9 @@ The purpose of the program is to print recipes for the user. The user has two op
 
 
 Categories:
+Input: Name of either the four categories (one at a time)
+Output: A selected recipe from a category of narrowed recipes
+When selecting to pick from categories it will prompt to ask "what kind of recipe would you like?". After the user puts in a response of one of the four categories the program will take that response and match it to the variable given to that response. With in that variable it holds the desination to each category which is a dataframe. Inside the dateframe contains every recipe that falls inside those categories parameters as a string. Once prompted the program will ask the user to pick a recipe from the category they decided. Upon that choice the program will search through the recipes.csv looking for the number of the users response and prints that recipe to the user.
 
 
 Ingredient:
