@@ -8,7 +8,6 @@ DSCI: 15310
 
 import pandas as pd
 
-#kind of just put this here I dont know why, I wanted to use it to make adding the information easier
 Cat = pd.read_csv('recipes.csv')
 Categories = Cat['Title'].tolist()
 
