@@ -311,7 +311,7 @@ Swt = pd.DataFrame(Sweet)
 
 Cats = ['Cake', 'cake', 'MeatBase', 'meatbase', 'VegetableBase', 'vegetablebase', 'Soup', 'soup', 'Seafood', 'seafood', 'Pie', 'pie', 'Salad', 'salad', 'Sweet', 'sweet']
 print("\nPick from: Cake, Meatbase, VegetableBase, Pie, Salad, Sweet, Seafood or Soup\n")
-C = input('What is on your mind? Make sure it is capitalized.\n')
+C = input('What is on your mind? We have Cake, MeatBase, VegetableBase, Soup, Seafood, Pie, Salad, and Sweet.\n')
 
 if C in Cats:
     print(f'A {C} recipe what a delicous choice! Here is what I have.')
