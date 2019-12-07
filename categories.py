@@ -145,7 +145,7 @@ Meat = {'Meats': ["Maryland Fried Chicken", "Chicken and Shrimp Cantonese",
 
 WeHaveTheMeats = pd.DataFrame(Meat)
 
-Veg = {'Vegtables': ["Glazed Carrots", "Asparagus Stir-Fried",
+Veg = {'Vegetables': ["Glazed Carrots", "Asparagus Stir-Fried",
 "Baked Green Beans",
 "Baked Zucchini with Mushrooms",
 "Bit O' Zucchini Bites",
@@ -311,7 +311,7 @@ Swt = pd.DataFrame(Sweet)
 
 Cats = ['Cake', 'cake', 'MeatBase', 'meatbase', 'VegetableBase', 'vegetablebase', 'Soup', 'soup', 'Seafood', 'seafood', 'Pie', 'pie', 'Salad', 'salad', 'Sweet', 'sweet']
 print("\nPick from: Cake, Meatbase, VegetableBase, Pie, Salad, Sweet, Seafood or Soup\n")
-C = input('What is on your mind? We have Cake, MeatBase, VegetableBase, Soup, Seafood, Pie, Salad, and Sweet.\n')
+C = input('What is on your mind?\n')
 
 if C in Cats:
     print(f'A {C} recipe what a delicous choice! Here is what I have.')
@@ -323,7 +323,7 @@ if C == 'Cake':
     print(Cakes)
 elif C == 'MeatBase':
     print(WeHaveTheMeats)
-elif C == 'VegtableBase':
+elif C == 'VegetableBase':
     print(Veggie)
 elif C == 'Soup':
     print(Y)
